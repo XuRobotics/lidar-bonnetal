@@ -104,12 +104,17 @@ class LaserScan:
     # if all goes well, open pointcloud
     pcd = o3d.io.read_point_cloud(filename)
     points = (np.asarray(pcd.points))
+    d = np.linalg.norm(points, axis=1)
+    points[d > 20] = [0, 0, 0]
     #Tree trunks to same dict
     pc = pypcd.PointCloud.from_path(filename)
     # pdb.set_trace()
     # remissions = None
-    remissions = pc.pc_data['intensity']
-    remissions[remissions > 3500] = 0
+    try:
+        remissions = pc.pc_data['intensity']
+        remissions[remissions > 3500] = 0
+    except:
+        remissions = np.zeros(len(points))
     # put in attribute
     self.set_points(points, remissions)
 
@@ -284,6 +289,8 @@ class SemLaserScan(LaserScan):
       #uses json file
       label_dict = json.load(open(filename))
       label = np.asarray(label_dict[key]['labels'])
+      # if len(np.unique(label)) == 2:
+      print('USING ONLY TWO LABELS')
       label[label > 0] = 2
       label[label == 0] = 1
     else:
@@ -293,10 +300,16 @@ class SemLaserScan(LaserScan):
       if os.path.isfile(filename):
         label = np.load(filename)
       else:
-        filename = os.path.join(os.path.sep.join(original_filename.split(os.sep)[:-2]), "predictions",
-                                key + ".npy")
-        print(filename)
-        label = np.load(filename)
+        filename = os.path.join(os.path.sep.join(original_filename.split(os.sep)[:-2]), "labels",
+                              number + ".npy")
+        if os.path.isfile(filename):
+          label = np.load(filename)
+        # bkp
+        else:
+          filename = os.path.join(os.path.sep.join(original_filename.split(os.sep)[:-2]), "predictions",
+                                    key + ".npy")
+          print(filename)
+          label = np.load(filename)
     # label[self.mask] = 1
 
 
