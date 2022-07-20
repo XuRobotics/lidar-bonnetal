@@ -63,7 +63,7 @@ post:
     train: True
     params: False # this should be a dict when in use
   KNN:
-    use: true
+    use: False
     params:
       knn: 5
       search: 5
@@ -81,8 +81,8 @@ dataset:
   sensor:
     name: "HDL64"
     type: "spherical" # projective
-    fov_up: 16.6
-    fov_down: -16.6
+    fov_up: 22.5
+    fov_down: -22.5
     img_prop:
       width: 2048
       height: 64

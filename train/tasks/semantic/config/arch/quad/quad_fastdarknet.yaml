@@ -24,7 +24,7 @@ train:
 # backbone parameters
 ################################################################################
 backbone:
-  name: "basic_darknet"  # ['squeezeseg', 'squeezesegV2', 'darknet']
+  name: "fast_darknet"  # ['squeezeseg', 'squeezesegV2', 'darknet']
   input_depth:
     range: True
     xyz: False
@@ -40,7 +40,7 @@ backbone:
 # decoder parameters
 ################################################################################
 decoder:
-  name: "basic_darknet"
+  name: "fast_darknet"
   dropout: 0.01
   bn_d: 0.01
   train: True # train decoder?
@@ -63,7 +63,7 @@ post:
     train: True
     params: False # this should be a dict when in use
   KNN:
-    use: true
+    use: False
     params:
       knn: 5
       search: 5
