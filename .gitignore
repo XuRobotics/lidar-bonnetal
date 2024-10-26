@@ -29,3 +29,4 @@ to-visualize/*
 *.npy
 *pennovation_dataset*
 *pennovation-darknet*
+/raw_training_data

@@ -17,26 +17,24 @@ name: "pennovation"
 labels: 
   0 : "unlabelled"
   1 : "road"
-  2: "vegetation"
+  2: "chair"
   3: "building"
-  4: "grass-sidewalk"
+  4: "box"
   5: "vehicle"
   6: "human"
-  7: "gravel"
+  7: "cones"
   8: "tree_trunk"
-  9: "light_pole"
 
 color_map: # bgr
-  0 : [100, 100, 100]
-  1 : [0, 255, 255]
-  2: [0, 0, 0]
-  3: [0, 0, 0]
-  4: [0, 0, 0]
+  0 : [0, 0, 0] 
+  1 : [100, 100, 100]
+  2: [0, 255, 255]
+  3: [0, 0, 0] 
+  4: [0, 255, 0]
   5: [255, 255, 0]
   6: [0, 0, 0]
-  7: [255, 0, 255]
-  8: [0, 255, 0]
-  9: [0, 0, 255]
+  7: [127.5, 127.5, 0]
+  8: [0, 0, 0]
 
 #  0 : [0, 0, 0]
 #  1 : [255, 0, 0]
@@ -67,18 +65,18 @@ content: # as a ratio with the total number of points
   # 9: 0.0003245 #  #  9: "light_pole"
 
   # virginia tech forest
-  0: 0.6418141 #  0 : "unlabelled"
-  1: 0.0936057 #  1 : "road"
-  2: 0.0 #  2: "vegetation"
-  3: 0.0 #  3: "building"
-  4: 0.0  #  4: "grass-sidewalk
-  5: 0.0 #   #  5: "vehicle"
-  6: 0.0  #  6: "human"
-  7: 0.0  #  7: "gravel"
-  8: 0.2645802 # 8: "tree_trunk"
-  9: 0.0 #  #  9: "light_pole"
+  # 0: 0.6584867 #  0 : "unlabelled"
+  # 1: 0.00 #  1 : "road"
+  # 2: 0.0 #  2: "vegetation"
+  # 3: 0.0 #  3: "building"
+  # 4: 0.0  #  4: "grass-sidewalk
+  # 5: 0.0 #   #  5: "vehicle"
+  # 6: 0.0  #  6: "human"
+  # 7: 0.0  #  7: "gravel"
+  # 8: 0.3415133 # 8: "tree_trunk"
+  # 9: 0.0 #  #  9: "light_pole"
 
-  # Wharton forest Map Merging Experiment
+  # # Wharton forest Map Merging Experiment
   # 0: 0.5040113 #0 : "unlabelled"
   # 1: 0.2271742 #  1 : "road"
   # 2: 0.0 #  2: "vegetation"
@@ -89,6 +87,17 @@ content: # as a ratio with the total number of points
   # 7: 0.0  #  7: "gravel"
   # 8: 0.2688146 # 8: "tree_trunk"
   # 9: 0.0 #  #  9: "light_pole"
+
+  # Pennovation DCIST Experiment
+  0: 0.7145337 #0 : "unlabelled"
+  1: 0.2591210 #  1 : "road"
+  2: 0.0039692 #  2: "chair"
+  3: 0.0000000 #  3: "building"
+  4: 0.0016580  #  4: "box"
+  5: 0.0194155 #   #  5: "vehicle"
+  6: 0.0000000  #  6: "human"
+  7: 0.0013026 #  7: "cones"
+  8: 0.0 # 8: "tree_trunk"
 
 #  # For Jiuzhou and Derek:
 #  0: 0.8722068 #  0 : "unlabelled"
@@ -131,7 +140,6 @@ learning_map:
   6 : 6
   7 : 7
   8 : 8
-  9 : 9
 
 learning_map_inv: # inverse of previous map
   0 : 0
@@ -143,18 +151,17 @@ learning_map_inv: # inverse of previous map
   6 : 6
   7 : 7
   8 : 8
-  9 : 9
 
 learning_ignore: # Ignore classes
   0: False
   1: False
-  2: True
+  2: False
   3: True
-  4: True
-  5: True
+  4: False
+  5: False
   6: True
-  7: True
-  8: False    
+  7: False
+  8: True    
   9: True
 
 

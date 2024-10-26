@@ -98,19 +98,19 @@ def convert_images_to_labels_pcds(for_jackle, for_indoor, args):
 
             # convert labels of non-car into background
             label_converted[label_converted==0] = background_label
-            label_converted[label_converted==1] = road_label
+            # label_converted[label_converted==1] = road_label
 
-            label_converted[label_converted==2] = background_label
-            print(f'converting points with vegetation labels into background labels')
+            # label_converted[label_converted==2] = road_label
+            # print(f'converting points with vegetation labels into road labels')
 
-            label_converted[label_converted==3] = background_label
-            print(f'converting points with building labels into background labels')
+            # label_converted[label_converted==3] = background_label
+            # print(f'converting points with building labels into background labels')
 
-            label_converted[label_converted==4] = road_label
-            print(f'converting points with grass/sidewalk labels into road labels')
+            # label_converted[label_converted==4] = road_label
+            # print(f'converting points with grass/sidewalk labels into road labels')
 
-            label_converted[label_converted==6] = background_label
-            print(f'converting points with human labels into background labels')
+            # label_converted[label_converted==6] = background_label
+            # print(f'converting points with human labels into background labels')
 
 
 

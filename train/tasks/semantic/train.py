@@ -20,21 +20,21 @@ if __name__ == '__main__':
         '--dataset_root_directory', '-d',
         type=str,
         required=False,
-        default="../../../pennovation_dataset/", # indoor_dataset
+        default="../../../raw_training_data/", # indoor_dataset
         help='Dataset to train with. No Default',
     )
     parser.add_argument(
         '--arch_cfg', '-ac',
         type=str,
         required=False,
-        default="./config/arch/darknet-smallest-1024px-pennovation.yaml",
+        default="./config/arch/darknet53-1024px-pennovation.yaml",
         help='Architecture yaml cfg file. See /config/arch for sample. No default!',
     )
     parser.add_argument(
         '--data_cfg', '-dc',
         type=str,
         required=False,
-        default='./config/labels/pennovation.yaml', # pennovation-open-field.yaml
+        default='./config/labels/pennovation-dcist.yaml', # pennovation-open-field.yaml
         help='Classification yaml cfg file. See /config/labels for sample. No default!',
     )
     parser.add_argument(
@@ -47,7 +47,7 @@ if __name__ == '__main__':
         '--pretrained', '-p',
         type=str,
         required=False,
-        default="../../../pennovation-darknet-smallest", # indoor-darknet-smallest
+        default="", # indoor-darknet-smallest
         help='Directory to get the pretrained model. If not passed, do from scratch!'
     )
     FLAGS, unparsed = parser.parse_known_args()
